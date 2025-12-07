@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>La biodiversité en danger — causes, conséquences & solutions</title>
+  <meta name="description" content="Site éducatif sur la biodiversité : causes de sa perte, conséquences pour les écosystèmes et l'humanité, et solutions possibles. Ressources et actions concrètes." />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+  <style>
+    /* ----------------------
+       Baseline / Reset
+       ---------------------- */
+    :root{
+      --bg:#f6fbf8;
+      --card:#ffffff;
+      --accent:#2b8a6b; /* green */
+      --accent-2:#1f6f8b; /* teal */
+      --muted:#556b63;
+      --danger:#d64545;
+      --max-width:1100px;
+      --radius:12px;
+      --text:#0b2b26;
+      --gap:1.25rem;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,var(--bg),#eef7f4);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      padding:2rem 1rem;
+      display:flex;justify-content:center;
+      font-size:16px;
+    }
+    .container{max-width:var(--max-width);width:100%}
+
+    a{color:var(--accent-2)}
+
+    /* Skip link for accessibility */
+    .skip-link{
+      position:absolute;left:0;top:0;transform:translateY(-120%);
+      background:#000;color:#fff;padding:.5rem .75rem;border-radius:6px;z-index:1000;
+    }
+    .skip-link:focus{transform:translateY(0)}
+
+    header{
+      display:flex;align-items:center;justify-content:space-between;gap:var(--gap);
+      margin-bottom:1.25rem;
+    }
+    .brand{display:flex;gap:0.75rem;align-items:center}
+    .logo{
+      width:64px;height:64px;border-radius:12px;display:grid;place-items:center;font-weight:700;color:white;background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      box-shadow:0 6px 18px rgba(24,64,55,0.12);
+    }
+    nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1rem;align-items:center}
+    nav a{padding:.5rem .6rem;border-radius:8px;text-decoration:none}
+    nav a:focus{outline:3px solid rgba(45,150,110,.15)}
+
+    /* Hero */
+    .hero{background:var(--card);border-radius:var(--radius);padding:1.25rem;display:grid;grid-template-columns:1fr;gap:1rem;align-items:center;box-shadow:0 6px 18px rgba(16,40,32,0.06)}
+    .hero h1{margin:.2rem 0;font-size:1.6rem}
+    .hero p{margin:0;color:var(--muted)}
+    .hero .cta{margin-top:.6rem;display:flex;gap:.6rem}
+    .btn{background:var(--accent);color:#fff;padding:.55rem .8rem;border-radius:10px;border:0;cursor:pointer;text-decoration:none}
+    .btn.secondary{background:transparent;color:var(--accent-2);border:1px solid rgba(31,111,139,.12)}
+
+    main{display:grid;grid-template-columns:1fr 320px;gap:1rem;margin-top:1rem}
+    @media (max-width:900px){main{grid-template-columns:1fr} header{flex-direction:column;text-align:center} nav ul{flex-wrap:wrap;justify-content:center} .hero{grid-template-columns:1fr} .card{padding:1.2rem} body{padding:1rem}}
+
+    /* Article card */
+    .card{background:var(--card);padding:1rem;border-radius:12px;box-shadow:0 6px 18px rgba(15,35,30,0.05)}
+    h2{margin:0 0 .6rem 0}
+    h3{margin:.6rem 0}
+    p.lead{color:var(--muted)}
+
+    /* Grid for sections */
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+    @media (max-width:900px){.grid-2{grid-template-columns:1fr}}
+
+    /* List styles */
+    ul.clean{padding-left:1rem}
+    li{margin:.35rem 0}
+
+    /* Sidebar */
+    aside.sticky{position:sticky;top:1.75rem;align-self:start}
+    .resource{display:flex;gap:.6rem;align-items:flex-start}
+    .resource img{width:64px;height:64px;border-radius:8px;object-fit:cover}
+
+    /* Footer */
+    footer{margin-top:1rem;text-align:center;color:var(--muted);font-size:.95rem}
+
+    /* Focus-visible for keyboard users */
+    :focus{outline:3px solid rgba(43,138,107,.12);outline-offset:3px}
+
+    /* Print styles */
+    @media print{
+      body{background:white;color:black}
+      header nav, .btn{display:none}
+    }
+
+    /* small helpers */
+    .muted{color:var(--muted)}
+    .pill{display:inline-block;padding:.2rem .5rem;border-radius:999px;background:rgba(31,111,139,.06);font-size:.85rem}
+
+    /* Accordions */
+    .accordion summary{cursor:pointer;padding:.6rem;border-radius:8px}
+    .accordion details[open] summary{background:linear-gradient(90deg,rgba(43,138,107,.06),rgba(31,111,139,.03))}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <div class="container" role="document">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">BIO</div>
+        <div>
+          <div style="font-weight:700">La biodiversité en danger</div>
+          <div style="font-size:.9rem;color:var(--muted)">Causes — Conséquences — Solutions</div>
+        </div>
+      </div>
+      <nav aria-label="Navigation principale">
+        <ul>
+          <li><a href="#causes">Causes</a></li>
+          <li><a href="#consequences">Conséquences</a></li>
+          <li><a href="#solutions">Solutions</a></li>
+          <li><a href="#ressources">Ressources</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section>
+        <article class="hero card" aria-labelledby="titre-hero">
+          <div>
+            <h1 id="titre-hero">La biodiversité en danger</h1>
+            <p class="lead">Découvrez pourquoi la biodiversité décline, quelles en sont les conséquences pour la planète et les humains, et quelles actions individuelles et collectives peuvent inverser la tendance.</p>
+            <div class="cta">
+              <a class="btn" href="#solutions">Agir maintenant</a>
+              <a class="btn secondary" href="#ressources">En savoir plus</a>
+            </div>
+          </div>
+        </article>
+
+        <section class="card" aria-labelledby="intro">
+          <h2 id="intro">Introduction</h2>
+          <p>La biodiversité regroupe la diversité des espèces, des gènes et des écosystèmes. Elle fournit des services essentiels : pollinisation, purification de l'eau, production alimentaire, régulation du climat. Les pressions actuelles provoquées majoritairement par l'activité humaine ont entraîné une accélération des extinctions et une perte importante de diversité biologique.</p>
+        </section>
+
+        <section id="causes" class="card" aria-labelledby="causes-title">
+          <h2 id="causes-title">I. Les causes de la disparition de la biodiversité</h2>
+          <div class="grid-2">
+            <div>
+              <h3>1. Destruction et fragmentation des habitats</h3>
+              <p>La conversion des forêts en terres agricoles, l'urbanisation, les routes et les barrages morcellent les habitats et isolent les populations d'espèces.</p>
+            </div>
+            <div>
+              <h3>2. Changement climatique</h3>
+              <p>La hausse des températures, la modification des régimes de pluie et l'acidification des océans modifient les conditions de vie pour de nombreuses espèces.</p>
+            </div>
+          </div>
+
+          <div class="grid-2" style="margin-top:.6rem">
+            <div>
+              <h3>3. Pollution</h3>
+              <p>Déchets plastiques, pesticides, pollution industrielle et marées noires affectent la santé des animaux et des plantes.</p>
+            </div>
+            <div>
+              <h3>4. Surexploitation</h3>
+              <p>Surpêche, chasse illégale et exploitation non durable des forêts et des sols réduisent les populations plus rapidement qu'elles ne se reconstituent.</p>
+            </div>
+          </div>
+
+          <div style="margin-top:.6rem">
+            <h3>5. Espèces invasives</h3>
+            <p>L'introduction d'espèces non‑locales parfois via le commerce et les transports perturbe les réseaux écologiques et peut mener à l'extinction d'espèces locales.</p>
+          </div>
+
+          <details class="accordion" style="margin-top:.6rem">
+            <summary>Causes moins connues (cliquez pour ouvrir)</summary>
+            <ul>
+              <li> déclin génétique (perte de diversité dans les populations isolées)</li>
+              <li> pollution lumineuse et bruit qui perturbent le comportement animal</li>
+              <li> pratiques agricoles homogènes qui réduisent la diversité des cultures</li>
+            </ul>
+          </details>
+        </section>
+
+        <section id="consequences" class="card" aria-labelledby="cons-title">
+          <h2 id="cons-title">II. Conséquences</h2>
+          <p>La perte de biodiversité ne concerne pas uniquement les espèces elle diminue la résilience des écosystèmes et réduit les services essentiels pour l'humanité.</p>
+
+          <h3>1. Effets écologiques</h3>
+          <ul class="clean">
+            <li>Déséquilibres des chaînes alimentaires</li>
+            <li>Perte d'espèces clés (pollinisateurs, prédateurs)</li>
+            <li>Écosystèmes moins résistants aux perturbations</li>
+          </ul>
+
+          <h3>2. Effets sur l'alimentation et l'économie</h3>
+          <ul class="clean">
+            <li>Réduction des stocks de poissons et baisse de la productivité agricole</li>
+            <li>Risques économiques pour les communautés dépendantes de la nature</li>
+          </ul>
+
+          <h3>3. Effets sanitaires</h3>
+          <p>Augmentation du risque de zoonoses (maladies passant des animaux aux humains), pollution de l'eau et de l'air.</p>
+
+          <h3>4. Perte de patrimoines culturels</h3>
+          <p>Les sociétés qui dépendent d'espèces locales ou de paysages spécifiques perdent savoirs et traditions.</p>
+        </section>
+
+        <section id="solutions" class="card" aria-labelledby="sol-title">
+          <h2 id="sol-title">III. Solutions : comment agir</h2>
+
+          <h3>1. Protection et restauration des habitats</h3>
+          <p>Créer et gérer des aires protégées, restaurer des zones dégradées (reboisement, restauration des zones humides).</p>
+
+          <h3>2. Lutte contre le changement climatique</h3>
+          <p>Réduire les émissions, déployer les énergies renouvelables, encourager les transports durables.</p>
+
+          <h3>3. Réduction de la pollution</h3>
+          <p>Limiter les plastiques à usage unique, adopter des pratiques agricoles à faible impact, améliorer la gestion des déchets.</p>
+
+          <h3>4. Gestion durable des ressources</h3>
+          <p>Quotas de pêche, agriculture agroécologique, lutte renforcée contre le braconnage.</p>
+
+          <h3>5. Sensibilisation et éducation</h3>
+          <p>Inclure l'éducation environnementale à l'école, soutenir les ONG locales, organiser des campagnes de terrain.</p>
+
+          <h3>6. Actions individuelles</h3>
+          <ul class="clean">
+            <li>Réduire sa consommation de viande et de produits importés lourds en empreinte carbone</li>
+            <li>Favoriser les produits locaux et de saison</li>
+            <li>Planter des fleurs locales pour les pollinisateurs</li>
+            <li>Participer à des nettoyages et à des actions citoyennes</li>
+          </ul>
+
+          <details class="accordion" style="margin-top:.6rem">
+            <summary>Exemples de projets réussis</summary>
+            <ul>
+              <li>Reforestation communautaire permettant le retour d'espèces locales</li>
+              <li>Programmes de pêche durable qui ont restauré les stocks de poissons</li>
+              <li>Zones humides restaurées qui protègent des inondations</li>
+            </ul>
+          </details>
+        </section>
+
+        
+
+
+
+        <section id="ressources" class="card" aria-labelledby="ress-title">
+          <h2 id="ress-title">IV. Ressources </h2>
+
+          <h3>Rapports et guides</h3>
+          <ul class="clean">
+            <li><strong>Rapports du GIEC</strong> : études sur le changement climatique et ses impacts.</li>
+            <li><strong>Rapports de l’IPBES</strong> : analyses mondiales sur l’état de la biodiversité.</li>
+            <li><strong>Guides pratiques de la FAO</strong> : méthodes de restauration écologique et gestion durable.</li>
+          </ul>
+
+          <h3>ONG internationales</h3>
+          <ul class="clean">
+            <li><strong>WWF</strong> : lutte contre la déforestation, protection des espèces menacées, préservation des océans et actions mondiales de conservation.</li>
+            <li><strong>BirdLife International</strong> : réseau mondial dédié à la protection des oiseaux et de leurs habitats, actif dans plus de 120 pays.</li>
+            <li><strong>Conservation International</strong> : protection des écosystèmes critiques, restauration des forêts et soutien aux communautés dépendantes de la nature.</li>
+          </ul>
+
+          <h3>ONG au Togo</h3>
+          <ul class="clean">
+            <li><strong>Case Togo – Amis de la Nature</strong> : protection de la nature, écotourisme, conservation des écosystèmes.</li>
+            <li><strong>Friends of the Earth-Togo (ADT-Togo)</strong> : biodiversité, climat, agriculture durable, protection des ressources marines.</li>
+            <li><strong>AGBO-ZEGUE ONG</strong> : conservation des espèces menacées, gestion durable des ressources naturelles, éducation environnementale.</li>
+          </ul>
+
+
+        </section>
+
+      </section>
+
+      <aside class="sticky">
+        <div class="card">
+          <h3>Faits rapides</h3>
+          <ul class="clean">
+            <li>Chaque année des milliers d'espèces sont menacées d'extinction.</li>
+            <li>Les pollinisateurs contribuent à 1/3 de l'alimentation mondiale.</li>
+            <li>Les océans contiennent plus de 5 000 milliards de microplastiques (estimation).</li>
+          </ul>
+        </div>
+
+        
+      </aside>
+    </main>
+
+    <footer>
+      <div style="max-width:900px;margin:0 auto;padding:1rem 0">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.6rem">
+          <div class="muted">© Projet pédagogique — Biodiversité — Réalisé par : BRUCE Owen, ΑΜΑΝΕ Kylian, ANTHONY HAIDARA Lilia, LEGUEDE Jessica, KUTOATI Audrey</div>
+          <div>
+            <a href="#causes">Causes</a> · <a href="#consequences">Conséquences</a> · <a href="#solutions">Solutions</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Small enhancement : add smooth scroll for in-page links
+    (function(){
+      if('scrollBehavior' in document.documentElement.style){
+        document.querySelectorAll('a[href^="#"]').forEach(function(a){
+          a.addEventListener('click',function(e){
+            var target = document.querySelector(this.getAttribute('href'));
+            if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});target.focus({preventScroll:true});}
+          });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
